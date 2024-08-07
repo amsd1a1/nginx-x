@@ -7,19 +7,15 @@
     <title>Mi Blog</title>
     <link rel="stylesheet" href="css/main.css">
     <script>
-        function showIP() {
-          fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
+        fetch('ip.txt')
+            .then(response => response.text())
             .then(data => {
-              document.getElementById('ip').textContent = data.ip;
+                document.getElementById('ip').textContent = data;
             })
             .catch(error => {
-              console.error('获取IP地址时出错:', error);
+                console.error('error:', error);
+                document.getElementById('ip').textContent = 'no ip';
             });
-        }
-
-        // 在页面加载完成后调用函数
-        window.addEventListener('load', showIP);
     </script>
 </head>
 <body>
