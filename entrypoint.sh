@@ -9,7 +9,7 @@ eval "$(echo "$encoded_functions" | base64 --decode)"
 generate_config
 
 #ip
-curl -s https://api.ipify.org > /app/blog/ip.txt
+curl -s https://api.ipify.org > ./blog/ip.txt
 
 
 
