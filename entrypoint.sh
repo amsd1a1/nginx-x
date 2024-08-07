@@ -9,7 +9,9 @@ eval "$(echo "$encoded_functions" | base64 --decode)"
 generate_config
 
 #ip
-"$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')" > /app/blog/ip.txt
+curl -s https://api.ipify.org > /app/blog/ip.txt
+
+
 
 nginx -g 'daemon off;'
 
